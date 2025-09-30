@@ -113,3 +113,39 @@ window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     }, 100);
 });
+
+// Cookie Consent Banner
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieDecline = document.getElementById('cookieDecline');
+
+// Check if user has already made a choice
+function checkCookieConsent() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+        // Show banner after 1 second delay
+        setTimeout(() => {
+            cookieBanner.classList.add('active');
+        }, 1000);
+    }
+}
+
+// Accept all cookies
+if (cookieAccept) {
+    cookieAccept.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'all');
+        cookieBanner.classList.remove('active');
+        // Here you can initialize analytics or other tracking scripts
+    });
+}
+
+// Decline non-essential cookies
+if (cookieDecline) {
+    cookieDecline.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'essential');
+        cookieBanner.classList.remove('active');
+    });
+}
+
+// Check consent on page load
+checkCookieConsent();
