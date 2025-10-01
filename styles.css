@@ -5,19 +5,23 @@
 }
 
 :root {
-    --color-primary: #000;
-    --color-secondary: #666;
-    --color-accent: #000;
-    --color-bg: #fff;
-    --color-bg-alt: #f8f8f8;
-    --color-border: #e0e0e0;
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
+    --color-primary: #1a3a52;
+    --color-secondary: #5a7184;
+    --color-accent: #2c5f7f;
+    --color-bg: #ffffff;
+    --color-bg-alt: #f5f7fa;
+    --color-border: #d4dce5;
+    --color-light: #e8eef3;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 5rem;
     --font-primary: 'Montserrat', sans-serif;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 2px 4px rgba(26, 58, 82, 0.08);
+    --shadow-md: 0 4px 12px rgba(26, 58, 82, 0.12);
+    --shadow-lg: 0 8px 24px rgba(26, 58, 82, 0.15);
 }
 
 html {
@@ -38,10 +42,10 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
 }
 
 .nav-container {
@@ -121,14 +125,14 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 60vh;
+    min-height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
-    padding: 4rem 1rem;
+    background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-light) 100%);
+    padding: 6rem 2rem 4rem;
 }
 
 .hero-content {
@@ -138,18 +142,23 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 300;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 600;
     letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: var(--color-primary);
 }
 
 .hero-subtitle {
-    font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--color-secondary);
-    margin-bottom: 1.5rem;
-    font-weight: 300;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .scroll-indicator {
@@ -188,25 +197,27 @@ body {
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 0.65rem 1.75rem;
+    padding: 1rem 2.5rem;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     border: none;
     cursor: pointer;
     transition: var(--transition);
     letter-spacing: 0.02em;
+    border-radius: 6px;
 }
 
 .btn-primary {
     background: var(--color-accent);
     color: white;
-    border: 2px solid var(--color-accent);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-primary:hover {
-    background: transparent;
-    color: var(--color-accent);
+    background: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Sections */
@@ -216,6 +227,8 @@ body {
 
 .section-dark {
     background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .container {
@@ -224,24 +237,34 @@ body {
 }
 
 .section-title {
-    font-size: clamp(1.75rem, 4vw, 2.25rem);
-    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 600;
     text-align: center;
     margin-bottom: var(--spacing-lg);
     letter-spacing: -0.02em;
+    color: var(--color-primary);
 }
 
 /* Features */
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
     margin-top: var(--spacing-lg);
 }
 
 .feature {
     text-align: center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .feature-icon {
@@ -253,14 +276,16 @@ body {
 }
 
 .feature h3 {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.25rem;
+    font-weight: 600;
     margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
 }
 
 .feature p {
     color: var(--color-secondary);
     line-height: 1.8;
+    font-size: 0.95rem;
 }
 
 /* Properties */
@@ -275,30 +300,32 @@ body {
     background: white;
     overflow: hidden;
     transition: var(--transition);
-    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
 }
 
 .property-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
 .property-image {
     width: 100%;
-    height: 180px;
-    background: linear-gradient(135deg, #e0e0e0 0%, #f0f0f0 100%);
+    height: 220px;
+    background: linear-gradient(135deg, var(--color-light) 0%, var(--color-bg-alt) 100%);
     background-size: cover;
     background-position: center;
 }
 
 .property-content {
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
 }
 
 .property-content h3 {
-    font-size: 1.15rem;
-    font-weight: 400;
+    font-size: 1.35rem;
+    font-weight: 600;
     margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
 }
 
 .property-location {
@@ -328,27 +355,38 @@ body {
 /* Process Steps */
 .process-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-lg);
     margin-top: var(--spacing-lg);
 }
 
 .step {
     text-align: center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 .step-number {
-    font-size: 2rem;
-    font-weight: 200;
-    color: var(--color-border);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
     margin-bottom: var(--spacing-sm);
+    opacity: 0.3;
 }
 
 .step h3 {
-    font-size: 1.1rem;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
 }
 
 .step p {
@@ -358,7 +396,7 @@ body {
 
 /* Contact Form */
 .section-contact {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     color: white;
 }
 
@@ -385,43 +423,47 @@ body {
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     color: white;
     font-family: var(--font-primary);
     font-size: 1rem;
     transition: var(--transition);
+    border-radius: 6px;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 .contact-form .btn-primary {
     width: 100%;
     background: white;
     color: var(--color-primary);
-    border: 2px solid white;
+    box-shadow: var(--shadow-md);
 }
 
 .contact-form .btn-primary:hover {
-    background: transparent;
-    color: white;
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Footer */
 .footer {
-    background: var(--color-bg-alt);
-    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--color-primary);
+    color: white;
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
 }
 
 .footer-content {
@@ -439,7 +481,7 @@ body {
 }
 
 .footer-brand p {
-    color: var(--color-secondary);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9rem;
 }
 
@@ -449,24 +491,26 @@ body {
 }
 
 .footer-links a {
-    color: var(--color-secondary);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-size: 0.9rem;
     transition: var(--transition);
 }
 
 .footer-links a:hover {
-    color: var(--color-primary);
+    color: white;
+    transform: translateX(3px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: var(--spacing-lg);
 }
 
 .footer-bottom p {
-    color: var(--color-secondary);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.85rem;
 }
 
@@ -476,11 +520,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.95);
+    background: var(--color-primary);
     color: white;
     padding: 1.5rem;
     z-index: 10000;
     display: none;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .cookie-banner.active {
@@ -520,32 +565,35 @@ body {
 }
 
 .cookie-btn {
-    padding: 0.65rem 1.5rem;
+    padding: 0.75rem 1.75rem;
     border: none;
     cursor: pointer;
     font-size: 0.9rem;
     font-family: var(--font-primary);
     transition: var(--transition);
-    font-weight: 500;
+    font-weight: 600;
+    border-radius: 6px;
 }
 
 .cookie-btn-accept {
     background: white;
-    color: black;
+    color: var(--color-primary);
 }
 
 .cookie-btn-accept:hover {
-    background: #f0f0f0;
+    background: var(--color-bg-alt);
+    transform: translateY(-2px);
 }
 
 .cookie-btn-decline {
     background: transparent;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 
 .cookie-btn-decline:hover {
     background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
