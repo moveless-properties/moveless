@@ -492,6 +492,7 @@ body {
     height: 120px;
     width: auto;
     margin-bottom: var(--spacing-sm);
+    filter: brightness(0) invert(1);
 }
 
 .footer-brand p {
