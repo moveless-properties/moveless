@@ -125,19 +125,31 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 65vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
     position: relative;
-    background: linear-gradient(135deg, rgba(26, 58, 82, 0.85) 0%, rgba(44, 95, 127, 0.85) 100%), url('hero.png') center top/cover no-repeat;
+    background: url('hero.png') right center/cover no-repeat;
     padding: 6rem 2rem 4rem;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 50%;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(26, 58, 82, 0.95) 0%, rgba(26, 58, 82, 0.85) 70%, transparent 100%);
+}
+
 .hero-content {
-    max-width: 700px;
-    padding: 1rem;
+    max-width: 600px;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
     animation: fadeInUp 1s ease-out;
 }
 
