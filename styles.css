@@ -706,3 +706,21 @@ body {
         padding: var(--spacing-lg) var(--spacing-sm);
     }
 }
+/* Platform nav link */
+.nav-platform {
+    background: var(--color-accent);
+    color: white !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-platform:hover {
+    background: var(--color-primary);
+    color: white !important;
+}
+
+.nav-platform::after {
+    display: none !important;
+}
