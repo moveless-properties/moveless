@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Connecting QuickBooks…</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; max-width: 640px; margin: 4rem auto; padding: 0 1rem; color: #222; }
+    code { background: #f4f4f4; padding: 0.5rem; display: block; word-break: break-all; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h2>Finishing QuickBooks connection&hellip;</h2>
+  <p>Handing off to the reconciliation app on your machine. If your browser warns
+  about the localhost certificate, choose <strong>Advanced &rarr; Proceed</strong>.</p>
+  <div id="manual" style="display:none">
+    <p>Automatic hand-off didn't complete. Copy this URL and paste it into the
+    terminal (running <em>qbrecon connect --manual</em>):</p>
+    <code id="url"></code>
+  </div>
+  <script>
+    var target = "https://localhost:8765/callback" + location.search;
+    document.getElementById("url").textContent = location.href;
+    setTimeout(function () {
+      document.getElementById("manual").style.display = "block";
+    }, 4000);
+    location.replace(target);
+  </script>
+</body>
+</html>
